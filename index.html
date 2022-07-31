@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- <h1>The Dsa Assignment! </h1> -->
+    <h1>Stacks</h1>
+    <div class="first">
+        <div class="firstPara">
+            <p>Stack is a linear data structure which follows a particular order in which
+                the operations are performed.The order may be LIFO(Last In First Out) or
+                FILO(First In Last Out).</p>
+        </div>
+        <img width=150px src="./pile_of_dishes.png" alt="">
+    </div>
+    <hr class="firsthr">
+    <div class="second">
+        <!-- <img src="./stack1.png" alt=""> -->
+        <p>There are many real-life examples of a stack. Consider an example of plates stacked over one another in the
+            canteen. The plate which is at the top is the first one to be removed, i.e. the plate which has been placed
+            at
+            the bottommost position remains in the stack for the longest period of time.
+            So, it can be simply seen to follow LIFO(Last In First Out)/FILO(First In Last Out) order.
+            Here You can
+        <ul>
+            <li> Put a new plate on top</li>
+            <li>Remove the top plate</li>
+        </ul>
+        </p>
+    </div>
+    <hr class="firsthr">
+    <div class="middle">
+        <h2>LIFO Principle of Stack</h2>
+        <p>In programming terms, putting an item on top of the stack is called push and removing an item is called pop.
+        </p>
+        <img src="./stackmid.png" alt="">
+    </div>
+
+    <div class="before-mid">
+        <h2>Stack implementations in Python, Java and C</h2>
+        <div class="displaymid">
+            <div class="python common">
+                <h2>PYTHON</h2>
+                <p>
+                    # Stack implementation in python <br>
+                    # Creating a stack <br>
+                    def create_stack():<br>
+                    stack = []<br>
+                    return stack<br>
+
+                    # Creating an empty stack<br>
+                    def check_empty(stack):<br>
+                    return len(stack) == 0<br>
+
+
+                    # Adding items into the stack<br>
+                    def push(stack, item):<br>
+                    stack.append(item)<br>
+                    print("pushed item: " + item)<br>
+
+
+                    # Removing an element from the stack<br>
+                    def pop(stack):<br>
+                    if (check_empty(stack)):<br>
+                    return "stack is empty"<br>
+
+                    return stack.pop()<br>
+
+
+                    stack = create_stack()<br>
+                    push(stack, str(1))<br>
+                    push(stack, str(2))<br>
+                    push(stack, str(3))<br>
+                    push(stack, str(4))<br>
+                    print("popped item: " + pop(stack))<br>
+                    print("stack after popping an element: " + str(stack))<br>
+                </p>
+            </div>
+            <div class="java common">
+                <h2>JAVA</h2>
+                <p>// Stack implementation in Java
+
+                    class Stack {<br>
+                    private int arr[];<br>
+                    private int top;<br>
+                    private int capacity;<br>
+
+                    // Creating a stack<br>
+                    Stack(int size) {<br>
+                    arr = new int[size];<br>
+                    capacity = size;<br>
+                    top = -1;<br>
+                    }<br>
+
+                    // Add elements into stack<br>
+                    public void push(int x) {<br>
+                    if (isFull()) {<br>
+                    System.out.println("OverFlow\nProgram Terminated\n");<br>
+                    System.exit(1);<br>
+                    }<br>
+
+                    System.out.println("Inserting " + x);<br>
+                    arr[++top] = x;<br>
+                    }<br>
+
+                    // Remove element from stack<br>
+                    public int pop() {<br>
+                    if (isEmpty()) {<br>
+                    System.out.println("STACK EMPTY");<br>
+                    System.exit(1);<br>
+                    }<br>
+                    return arr[top--];<br>
+                    }<br>
+
+                    // Utility function to return the size of the stack<br>
+                    public int size() {<br>
+                    return top + 1;<br>
+                    }<br>
+
+                    // Check if the stack is empty<br>
+                    public Boolean isEmpty() {<br>
+                    return top == -1;<br>
+                    }<br>
+
+                    // Check if the stack is full<br>
+                    public Boolean isFull() {<br>
+                    return top == capacity - 1;<br>
+                    }<br>
+
+                    public void printStack() {<br>
+                    for (int i = 0; i <= top; i++) {<br>
+                        System.out.println(arr[i]);<br>
+                        }<br>
+                        }<br>
+
+                        public static void main(String[] args) {<br>
+                        Stack stack = new Stack(5);<br>
+
+                        stack.push(1);<br>
+                        stack.push(2);<br>
+                        stack.push(3);<br>
+                        stack.push(4);<br>
+
+                        stack.pop();<br>
+                        System.out.println("\nAfter popping out");<br>
+
+                        stack.printStack();<br>
+
+                        }<br>
+                        }</p>
+            </div>
+            <div class="c common">
+                <h2>C</h2>
+                <p>// Stack implementation in C<br>
+
+                    '#include stdio.h<br>
+                    #include stdlib.h<br>
+
+                    #define MAX 10<br>
+
+                    int count = 0;<br>
+
+                    // Creating a stack<br>
+                    struct stack {<br>
+                    int items[MAX];<br>
+                    int top;<br>
+                    };<br>
+                    typedef struct stack st;<br>
+
+                    void createEmptyStack(st *s) {<br>
+                    s->top = -1;<br>
+                    }<br>
+
+                    // Check if the stack is full<br>
+                    int isfull(st *s) {<br>
+                    if (s->top == MAX - 1)<br>
+                    return 1;<br>
+                    else<br>
+                    return 0;<br>
+                    }<br>
+
+                    // Check if the stack is empty<br>
+                    int isempty(st *s) {<br>
+                    if (s->top == -1)<br>
+                    return 1;<br>
+                    else<br>
+                    return 0;<br>
+                    }<br>
+
+                    // Add elements into stack<br>
+                    void push(st *s, int newitem) {<br>
+                    if (isfull(s)) {<br>
+                    printf("STACK FULL");<br>
+                    } else {<br>
+                    s->top++;<br>
+                    s->items[s->top] = newitem;<br>
+                    }<br>
+                    count++;<br>
+                    }<br>
+
+                    // Remove element from stack<br>
+                    void pop(st *s) {<br>
+                    if (isempty(s)) {<br>
+                    printf("\n STACK EMPTY \n");<br>
+                    } else {<br>
+                    printf("Item popped= %d", s->items[s->top]);<br>
+                    s->top--;<br>
+                    }<br>
+                    count--;<br>
+                    printf("\n")<br>;
+                    }<br>
+
+                    // Print elements of stack<br>
+                    void printStack(st *s) {<br>
+                    printf("Stack: ");<br>
+                    for (int i = 0; i < count; i++) {<br>
+                        printf("%d ", s->items[i]);<br>
+                        }<br>
+                        printf("\n");<br>
+                        }<br>
+
+                        // Driver code<br>
+                        int main() {<br>
+                        int ch;<br>
+                        st *s = (st *)malloc(sizeof(st));<br>
+
+                        createEmptyStack(s);<br>
+
+                        push(s, 1);<br>
+                        push(s, 2);<br>
+                        push(s, 3);<br>
+                        push(s, 4);<br>
+
+                        printStack(s);<br>
+
+                        pop(s);<br>
+
+                        printf("\nAfter popping out\n");<br>
+                        printStack(s);<br>
+                        }</p>
+            </div>
+        </div>
+    </div>
+    <hr class="firsthr">
+    <div class="last">
+        <h2>Stack Time Complexity</h2>
+        <p>For the array-based implementation of a stack, the push and pop operations take constant time, i.e. O(1).</p>
+    </div>
+    <hr class="firsthr">
+    <br>
+    <div class="copyright">
+        <div class=info>
+            <p>
+                Desgined by : Akshat Sharma <br>
+                Email: 2021kuec2022@iiitkota.ac.in <br>
+                Instagram: @akshatsharma07 <br>
+                Phone Number:9xxxxxxxxxxx <br>
+
+            </p>
+        </div>
+
+            <div class="insta social">
+                <a href="https://www.instagram.com" target="_blank"><img px src="./instagam.png" alt=""></a>
+            </div>
+            <div class="face social">
+                <a href="https://www.facebook.com" target="_blank"><img src="./facebook.png" alt=""></a>
+            </div>
+            <div class="whatsapp social">
+                <a href="https://www.whatsapp.com" target="_blank"><img src="./Whatsapp.png" alt=""></a>
+            </div>
+        
+    </div>
+    <hr class="firsthr">
+</body>
+
+</html>
